@@ -7,10 +7,10 @@ public class Main {
     public static void main(String[] args) {
 /*1. Написать метод, принимающий на вход два аргумента: len и initialValue, и возвращающий одномерный массив типа int
  длиной len, каждая ячейка которого равна initialValue;*/
-        ex1();
+        //ex1();
         //ex2();
         //ex3();
-        //ex4();
+        ex4();
 
     }
 
@@ -69,27 +69,22 @@ public class Main {
         System.out.println("Введите имя пользователя: ");
         String name = iScanner.nextLine();
 
-        LocalTime curTime = LocalTime.now();
-        LocalTime morningTime = LocalTime.of(11, 59);
-        LocalTime dayTime = LocalTime.of(17, 59);
-        LocalTime eveningTime = LocalTime.of(22, 59);
-        LocalTime night = LocalTime.of(4, 59);
 
-        if (curTime.isBefore(morningTime)) {
-            System.out.println("Доброе утро");
+        var h=(new Date()).getHours();
+        if (h > 6 && h < 12) {
+           System.out.printf("Доброе утро");
         }
-        if (curTime.isBefore(dayTime)) {
-            System.out.println("Добрый день");
+        if (h > 12 && h < 18) {
+            System.out.printf("Добрый день");
         }
-        if (curTime.isBefore(eveningTime)) {
-            System.out.println("Добрый вечер");
-        } else {
-            System.out.println("Доброй ночи");
+        if (h > 18 && h < 23) {
+            System.out.printf("Добрый вечер, %s!%n", name);
         }
+        if (h < 5) {
+            System.out.printf("Доброй ночи");
+        }
+        System.out.println(h);
 
-            System.out.println("Current time of the day: " + curTime);
-
-            System.out.printf("Привет, %s!%n", name);
         }
 
 
